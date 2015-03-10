@@ -1,0 +1,41 @@
+{
+   "producers" :
+       [{
+           "photo" : "images/producers/pfunk.jpg",
+           "name" : "P Funk (Majani)",
+           "genre" : "Hip hop, Dance Hall",
+           "label" : "Bongo Records",
+           "aboutproducer" : "Bongo flava god father, careen span from 90s with lotta hits on the radio........"
+        },
+           {
+           "photo" : "images/producers/masterjay.jpg",
+           "name" : "Master Jay",
+           "genre" : "Hip hop, R&B, Dance Hall",
+           "label" : "MJ Records",
+           "aboutproducer" : "Earliest Tanzanian record producer, careen span from 90s, MJ has won multiple awards........"
+       },
+           {
+               "photo" : "images/producers/marcochali.jpg",
+               "name" : "Marco Chali",
+               "genre" : "Hip hop, R&B, Dance Hall",
+               "label" : "MJ Records",
+               "aboutproducer" : "Hottest producer in town, packing more hits than the oven door........"
+           },
+           {
+               "photo" : "images/producers/pancholatino.jpg",
+               "name" : "Pancho Lationo",
+               "genre" : "Hip hop, R&B, Dance Hall",
+               "label" : "B Hits",
+               "aboutproducer" : "Known for his loud bass and hard hitting 808s, Pancho is a highly sought producer at the moment......."
+           }
+       ],
+    "mashavu" :
+    {
+        "name" : "Peter",
+        "password" : "kamville"
+    },
+    "petro" :
+    {
+        "img" : "./images/producers/marcochali.jpg"
+    }
+}

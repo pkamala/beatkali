@@ -1,0 +1,13 @@
+<article class="producers">
+<div class="container-fluid" width:100px>
+    <ul class="list-group" align="center" width="40%">
+    <% appdata.producers.forEach(function(item)  { %>
+    <li width="40%" style="background-color:beige"><img src='<%= item.photo  %>' width="15%" height="15%" border="1" border-color="blue" > </li>
+    <li style="background-color:beige"class="list-group-item"> <b>Producer Name</b> : <%= item.name %> </li>
+    <li style="background-color:beige" class="list-group-item"> <b>Genre : </b> <%= item.genre %> </li>
+   <br>
+  <%  }); %>
+    </ul>
+   </br></br>
+</div>
+</article>
