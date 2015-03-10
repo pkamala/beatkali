@@ -58,8 +58,4 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
-var server = app.listen('1988', function()
-{
-    console.log('Listening on port 1988');
-});
 
