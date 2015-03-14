@@ -5,30 +5,30 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
-var producers = require('./routes/producers');
+var signin = require('./routes/login');
 
 var app = express();
 
 // view engine setup
+app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
-
+// uncomment after placing your favicon in /public
+//app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
 
-
-app.locals.appdata = require('./data.json');
 app.use('/', routes);
-app.use('/producers',producers);
+app.use('/login', signin);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
+    var err = new Error('Not Found');
+    err.status = 404;
+    next(err);
 });
 
 // error handlers
@@ -36,51 +36,27 @@ app.use(function(req, res, next) {
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
-  app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-      message: err.message,
-      error: err
+    app.use(function(err, req, res, next) {
+        res.status(err.status || 500);
+        res.render('error', {
+            message: err.message,
+            error: err
+        });
     });
-  });
 }
 
 // production error handler
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
-  res.status(err.status || 500);
-  res.render('error', {
-    message: err.message,
-    error: {}
-  });
+    res.status(err.status || 500);
+    res.render('error', {
+        message: err.message,
+        error: {}
+    });
 });
-module.exports = function timeout(ms) {
-    ms = ms || 5000;
+app.set('port', process.env.PORT || 3000);
+var server = app.listen(app.get('port'), function() {
+    console.log('Express server listening on port ' + server.address().port);
+});
 
-    return function(req, res, next) {
-        var id = setTimeout(function(){
-            req.emit('timeout', ms);
-        }, ms);
-
-        req.on('timeout', function(){
-            if (res.headerSent) return debug('response started, cannot timeout');
-            var err = new Error('Response timeout');
-            err.timeout = ms;
-            err.status = 503;
-            next(err);
-        });
-
-        req.clearTimeout = function(){
-            clearTimeout(id);
-        };
-
-        res.on('header', function(){
-            clearTimeout(id);
-        });
-
-        next();
-    };
-};
 module.exports = app;
-var port = process.env.PORT || '3000';
-app.listen(port);

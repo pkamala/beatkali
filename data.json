@@ -23,7 +23,7 @@
            },
            {
                "photo" : "images/producers/pancholatino.jpg",
-               "name" : "Pancho Lationo",
+               "name" : "Pancho Latino",
                "genre" : "Hip hop, R&B, Dance Hall",
                "label" : "B Hits",
                "aboutproducer" : "Known for his loud bass and hard hitting 808s, Pancho is a highly sought producer at the moment......."
@@ -34,8 +34,8 @@
         "name" : "Peter",
         "password" : "kamville"
     },
-    "petro" :
+    "studio" :
     {
-        "img" : "./images/producers/marcochali.jpg"
+        "img" : "images/studio1.jpg"
     }
 }
