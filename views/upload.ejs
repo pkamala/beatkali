@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <% include partials/template/head.ejs %>
+</head>
+<body>
+<% include partials/template/header.ejs %>
+<div align=center>
+<h1>Sign in 'fo u give us that beat</h1>
+  <a class="btn btn-social btn-facebook">
+      <i class="fa fa-facebook"></i>Facebook
+  </a>&nbsp;
+  <a class="btn btn-social btn-twitter">
+    <i class="fa fa-twitter"></i>Twitter
+  </a>&nbsp;
+  <a class="btn btn-social btn-google-plus">
+      <i class="fa fa-google-plus"></i>Google+
+  </a> </br>
+ <h1>OR</h1>
+ <form class="form-inline" role="form" method="post" action="/upload">
+     
+     <i class="fa fa-user"></i>
+    <input name="email" type="email" class="form-control" placeholder="e mail" required>
+    &nbsp;
+     <i class="fa fa-key"></i>
+    <input name="password" type="password" class="form-control" placeholder="password" required></br></br>
+    <input type="submit" class="btn btn-primary">
+ </form>
+    
+    
+</div>
+
+
+</body>
+</html>

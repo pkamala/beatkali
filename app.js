@@ -3,14 +3,15 @@ var path = require('path');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var ejs = require('ejs');
 
 var routes = require('./routes/index');
-var signin = require('./routes/login');
+var upload = require('./routes/upload');
 
 var app = express();
 
 // view engine setup
-app.set('views', __dirname + '/views');
+app.set(__dirname + '/views');
 app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
@@ -21,8 +22,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 app.use('/', routes);
-app.use('/login', signin);
+app.use('/upload', upload);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -54,9 +56,7 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
-app.set('port', process.env.PORT || 3000);
-var server = app.listen(app.get('port'), function() {
-    console.log('Express server listening on port ' + server.address().port);
-});
+//app.set('port', process.env.PORT || 3000);
+var server = app.listen(process.env.PORT, process.env.IP);
 
 module.exports = app;
